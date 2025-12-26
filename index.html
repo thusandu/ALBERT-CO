@@ -4,10 +4,8 @@
 <meta charset="UTF-8">
 <title>Albert Co | Value In Every Thread</title>
 
-<!-- MOBILE VIEW FIX -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- FONTS & ICONS -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -36,9 +34,7 @@ header{
   z-index:10;
 }
 
-header img{
-  width:120px;
-}
+header img{width:120px;}
 
 nav a{
   color:#F5F3EF;
@@ -48,9 +44,7 @@ nav a{
   font-size:14px;
 }
 
-nav a:hover{
-  color:#C7A14A;
-}
+nav a:hover{color:#C7A14A;}
 
 /* ================= HERO ================= */
 .cover{
@@ -74,9 +68,6 @@ nav a:hover{
 .cover-content{
   position:relative;
   z-index:1;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
 }
 
 .cover-logo{
@@ -93,7 +84,6 @@ nav a:hover{
 .cover-content h1{
   font-size:5rem;
   letter-spacing:8px;
-  margin-bottom:15px;
 }
 
 .cover-content p{
@@ -103,7 +93,7 @@ nav a:hover{
   margin-bottom:40px;
 }
 
-/* SOCIAL BUTTONS */
+/* ================= SOCIAL ================= */
 .social-buttons{
   display:flex;
   gap:20px;
@@ -119,13 +109,8 @@ nav a:hover{
   color:#0B1D2D;
   padding:14px 26px;
   border-radius:50px;
-  font-weight:500;
   text-decoration:none;
   transition:.3s;
-}
-
-.social-buttons a i{
-  font-size:20px;
 }
 
 .social-buttons a:hover{
@@ -155,12 +140,20 @@ nav a:hover{
   background:#10293D;
   border-radius:20px;
   padding:15px;
+  cursor:pointer;
   transition:.4s;
 }
 
 .product img{
   width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
   border-radius:16px;
+}
+
+.product:hover{
+  transform:translateY(-10px);
+  box-shadow:0 30px 60px rgba(0,0,0,.6);
 }
 
 .price{
@@ -171,10 +164,47 @@ nav a:hover{
   color:#C7A14A;
 }
 
-.product:hover{
-  transform:translateY(-10px);
-  box-shadow:0 30px 60px rgba(0,0,0,.6);
+/* ================= IMAGE MODAL ================= */
+.image-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.85);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
 }
+
+.image-modal.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.image-modal img{
+  max-width:90%;
+  max-height:85%;
+  border-radius:20px;
+  animation:zoom .4s ease;
+}
+
+@keyframes zoom{
+  from{transform:scale(.7);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+.close-modal{
+  position:absolute;
+  top:25px;
+  right:30px;
+  font-size:38px;
+  color:#fff;
+  cursor:pointer;
+}
+
+.close-modal:hover{color:#C7A14A;}
 
 /* ================= FOOTER ================= */
 footer{
@@ -185,56 +215,32 @@ footer{
 
 /* ================= MOBILE ================= */
 @media(max-width:768px){
+  header{padding:15px;}
+  header img{width:85px;}
+  nav a{margin-left:12px;font-size:11px;}
 
-  header{
-    padding:20px;
-  }
+  .cover-logo{width:170px;margin-bottom:30px;}
+  .cover-content h1{font-size:2.4rem;letter-spacing:2px;}
+  .cover-content p{font-size:1rem;letter-spacing:1.5px;}
 
-  header img{
-    width:90px;
-  }
+  .social-buttons{width:100%;}
+  .social-buttons a{width:100%;justify-content:center;}
 
-  nav a{
-    margin-left:15px;
-    font-size:12px;
-  }
-
-  .cover-logo{
-    width:180px;
-    margin-bottom:40px;
-  }
-
-  .cover-content h1{
-    font-size:2.6rem;
-    letter-spacing:3px;
-  }
-
-  .cover-content p{
-    font-size:1.1rem;
-    letter-spacing:2px;
-  }
-
-  .social-buttons{
-    flex-direction:column;
-    width:100%;
-  }
-
-  .social-buttons a{
-    width:100%;
-    justify-content:center;
-  }
-
-  .products{
-    padding:70px 20px;
-  }
+  .products{padding:60px 15px;}
 
   .product-grid{
     grid-template-columns:repeat(2,1fr);
-    gap:20px;
+    gap:16px;
   }
 
-  .price{
-    font-size:16px;
+  .product{padding:10px;}
+  .price{font-size:15px;}
+}
+
+/* EXTRA SMALL PHONES */
+@media(max-width:360px){
+  .product-grid{
+    grid-template-columns:1fr;
   }
 }
 </style>
@@ -243,7 +249,7 @@ footer{
 <body>
 
 <header>
-  <img src="Untitled design.png" alt="Albert Co Logo">
+  <img src="Untitled design.png">
   <nav>
     <a href="#">Home</a>
     <a href="#shop">Shop</a>
@@ -253,7 +259,7 @@ footer{
 
 <section class="cover">
   <div class="cover-content">
-    <img src="Untitled design1.png" class="cover-logo" alt="Albert Co">
+    <img src="Untitled design1.png" class="cover-logo">
     <h1>ALBERT CO</h1>
     <p>VALUE IN EVERY THREAD</p>
 
@@ -261,42 +267,66 @@ footer{
       <a href="https://wa.me/724137212" target="_blank"><i class="fab fa-whatsapp"></i>WhatsApp</a>
       <a href="https://web.facebook.com/profile.php?id=61578901490140" target="_blank"><i class="fab fa-facebook-f"></i>Facebook</a>
       <a href="https://www.tiktok.com/@albert.co_" target="_blank"><i class="fab fa-tiktok"></i>TikTok</a>
-      <a href="https://www.instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
+      <a href="#"><i class="fab fa-instagram"></i>Instagram</a>
     </div>
   </div>
 </section>
 
 <section class="products" id="shop">
-  <h2>OUR COLLECTION</h2>
+<h2>OUR COLLECTION</h2>
 
-  <div class="product-grid">
-    <!-- COPY PASTE PRODUCTS -->
-    <div class="product"><img src="1.png"><div class="price">LKR 1,550</div></div>
-    <div class="product"><img src="2.png"><div class="price">LKR 1,550</div></div>
-    <div class="product"><img src="3.png"><div class="price">LKR 1,550</div></div>
-    <div class="product"><img src="4.png"><div class="price">LKR 1,550</div></div>
-    <div class="product"><img src="5.png"><div class="price">LKR 1,550</div></div>
-    <div class="product"><img src="8.png"><div class="price">LKR 1,550</div></div>
-    <div class="product"><img src="9.png"><div class="price">LKR 1,550</div></div>
-    <div class="product"><img src="10.png"><div class="price">LKR 1,550</div></div>
-    <div class="product"><img src="11.png"><div class="price">LKR 1,550</div></div>
-    <div class="product"><img src="12.png"><div class="price">LKR 1,550</div></div>
-    <div class="product"><img src="6.8.png"><div class="price">LKR 1,550</div></div>
-    <div class="product"><img src="7.8.png"><div class="price">LKR 1,550</div></div>
-    <div class="product"><img src="1.1.png"><div class="price">LKR 1,550</div></div>
-    <div class="product"><img src="2.2.png"><div class="price">LKR 1,550</div></div>
-    <div class="product"><img src="3.3.png"><div class="price">LKR 1,550</div></div>
-    <div class="product"><img src="7.7.png"><div class="price">LKR 1,550</div></div>
-    <div class="product"><img src="8.8 - Copy.png"><div class="price">LKR 1,550</div></div>
-    <div class="product"><img src="1.2.png"><div class="price">LKR 1,550</div></div>
-    <div class="product"><img src="2.22.png"><div class="price">LKR 1,550</div></div>
-  </div>
+<div class="product-grid">
+  <div class="product"><img src="1.png"><div class="price">LKR 1,550</div></div>
+  <div class="product"><img src="2.png"><div class="price">LKR 1,550</div></div>
+  <div class="product"><img src="3.png"><div class="price">LKR 1,550</div></div>
+  <div class="product"><img src="4.png"><div class="price">LKR 1,550</div></div>
+  <div class="product"><img src="5.png"><div class="price">LKR 1,550</div></div>
+  <div class="product"><img src="8.png"><div class="price">LKR 1,550</div></div>
+  <div class="product"><img src="9.png"><div class="price">LKR 1,550</div></div>
+  <div class="product"><img src="10.png"><div class="price">LKR 1,550</div></div>
+  <div class="product"><img src="11.png"><div class="price">LKR 1,550</div></div>
+  <div class="product"><img src="12.png"><div class="price">LKR 1,550</div></div>
+  <div class="product"><img src="6.8.png"><div class="price">LKR 1,550</div></div>
+  <div class="product"><img src="7.8.png"><div class="price">LKR 1,550</div></div>
+  <div class="product"><img src="1.1.png"><div class="price">LKR 1,550</div></div>
+  <div class="product"><img src="2.2.png"><div class="price">LKR 1,550</div></div>
+  <div class="product"><img src="3.3.png"><div class="price">LKR 1,550</div></div>
+  <div class="product"><img src="7.7.png"><div class="price">LKR 1,550</div></div>
+  <div class="product"><img src="8.8 - Copy.png"><div class="price">LKR 1,550</div></div>
+  <div class="product"><img src="1.2.png"><div class="price">LKR 1,550</div></div>
+  <div class="product"><img src="2.22.png"><div class="price">LKR 1,550</div></div>
+</div>
 </section>
 
-<footer>
-© 2025 Albert Co — Value In Every Thread
-</footer>
+<footer>© 2025 Albert Co — Value In Every Thread</footer>
+
+<!-- IMAGE MODAL -->
+<div class="image-modal" id="imageModal">
+  <span class="close-modal" id="closeModal">&times;</span>
+  <img id="modalImg">
+</div>
+
+<script>
+const images = document.querySelectorAll(".product img");
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImg");
+const closeBtn = document.getElementById("closeModal");
+
+images.forEach(img=>{
+  img.addEventListener("click",()=>{
+    modal.classList.add("active");
+    modalImg.src = img.src;
+  });
+});
+
+closeBtn.onclick = ()=> modal.classList.remove("active");
+
+modal.onclick = (e)=>{
+  if(e.target === modal){
+    modal.classList.remove("active");
+  }
+};
+</script>
 
 </body>
 </html>
-
